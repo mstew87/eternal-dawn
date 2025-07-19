@@ -1,103 +1,161 @@
-import Image from "next/image";
+import Layout from '@/components/layout/Layout';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-background-primary via-background-secondary to-background-primary">
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/10 via-transparent to-brand-purple/10"></div>
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="gradient-text">Eternal Dawn</span>
+          </h1>
+          <p className="text-xl sm:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+            A passionate gaming community focused on ARPGs. Join us in our journey through 
+            Diablo IV, Path of Exile, and Last Epoch.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/apply" className="btn-primary">
+              Apply to Guild
+            </Link>
+            <Link href="/about" className="btn-secondary">
+              Learn More
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Games Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">
+            Our Games
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                name: 'Diablo IV',
+                description: 'The latest installment in the legendary ARPG series',
+                color: 'from-red-600 to-red-800'
+              },
+              {
+                name: 'Path of Exile',
+                description: 'The definitive action RPG experience',
+                color: 'from-orange-600 to-orange-800'
+              },
+              {
+                name: 'Path of Exile 2',
+                description: 'The next evolution of the genre',
+                color: 'from-yellow-600 to-yellow-800'
+              },
+              {
+                name: 'Last Epoch',
+                description: 'Innovative time-traveling ARPG',
+                color: 'from-purple-600 to-purple-800'
+              }
+            ].map((game) => (
+              <div key={game.name} className="card group hover:scale-105 transition-transform duration-200">
+                <div className={`w-16 h-16 rounded-lg bg-gradient-to-r ${game.color} mb-4 flex items-center justify-center`}>
+                  <span className="text-white font-bold text-lg">{game.name.split(' ')[0]}</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-text-primary">{game.name}</h3>
+                <p className="text-text-secondary">{game.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Stats */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-background-secondary">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">
+            Community Stats
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { number: '500+', label: 'Active Members' },
+              { number: '4', label: 'Supported Games' },
+              { number: '24/7', label: 'Discord Activity' }
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-4xl font-bold gradient-text mb-2">{stat.number}</div>
+                <div className="text-text-secondary">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 gradient-text">
+            Why Join Eternal Dawn?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Active Community',
+                description: 'Join a vibrant community of passionate gamers who share your love for ARPGs.',
+                icon: '👥'
+              },
+              {
+                title: 'Organized Events',
+                description: 'Participate in regular gaming sessions, tournaments, and community events.',
+                icon: '🎮'
+              },
+              {
+                title: 'Knowledge Sharing',
+                description: 'Learn from experienced players and share your own strategies and builds.',
+                icon: '📚'
+              },
+              {
+                title: 'Discord Integration',
+                description: 'Stay connected with real-time chat, voice channels, and game integration.',
+                icon: '💬'
+              },
+              {
+                title: 'Build Guides',
+                description: 'Access comprehensive build guides and theorycrafting discussions.',
+                icon: '⚔️'
+              },
+              {
+                title: 'Friendly Environment',
+                description: 'A welcoming community where everyone can learn and grow together.',
+                icon: '🤝'
+              }
+            ].map((feature) => (
+              <div key={feature.title} className="card text-center">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-3 text-text-primary">{feature.title}</h3>
+                <p className="text-text-secondary">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-brand-primary/10 to-brand-purple/10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6 gradient-text">
+            Ready to Join the Adventure?
+          </h2>
+          <p className="text-xl text-text-secondary mb-8">
+            Become part of our growing community and experience the best of ARPG gaming.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/apply" className="btn-primary">
+              Apply Now
+            </Link>
+            <Link href="/forum" className="btn-secondary">
+              Visit Forum
+            </Link>
+          </div>
+        </div>
+      </section>
+    </Layout>
   );
 }
