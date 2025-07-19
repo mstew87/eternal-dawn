@@ -10,26 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         // ETD Brand Colors based on logo
-        brand: {
-          primary: '#FF4500',    // Fiery orange-red (main glow)
-          secondary: '#FF6B35',  // Lighter orange-red
-          accent: '#FF8C00',     // Bright orange highlight
-          dark: '#8B0000',       // Deep crimson
-          purple: '#DDA0DD',     // Purple accent
-          'purple-dark': '#9370DB', // Darker purple
-        },
+        'brand-primary': '#FF4500',    // Fiery orange-red (main glow)
+        'brand-secondary': '#FF6B35',  // Lighter orange-red
+        'brand-accent': '#FF8C00',     // Bright orange highlight
+        'brand-dark': '#8B0000',       // Deep crimson
+        'brand-purple': '#DDA0DD',     // Purple accent
+        'brand-purple-dark': '#9370DB', // Darker purple
+        
         // Background colors
-        background: {
-          primary: '#0A0A0A',    // Deep black
-          secondary: '#1A1A1A',  // Dark gray
-          tertiary: '#2D2D2D',   // Medium gray for UI
-        },
+        'background-primary': '#0A0A0A',    // Deep black
+        'background-secondary': '#1A1A1A',  // Dark gray
+        'background-tertiary': '#2D2D2D',   // Medium gray for UI
+        
         // Text colors
-        text: {
-          primary: '#FFFFFF',     // White
-          secondary: '#E5E5E5',  // Light gray
-          muted: '#A0A0A0',      // Muted gray
-        }
+        'text-primary': '#FFFFFF',     // White
+        'text-secondary': '#E5E5E5',  // Light gray
+        'text-muted': '#A0A0A0',      // Muted gray
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

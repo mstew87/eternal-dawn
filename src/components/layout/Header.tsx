@@ -16,15 +16,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-background-primary border-b border-brand-primary/20">
+    <header className="bg-gray-900 border-b border-orange-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent">
+            <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
               ETD
             </div>
-            <span className="text-text-primary font-semibold">Eternal Dawn</span>
+            <span className="text-white font-semibold">Eternal Dawn</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -33,7 +33,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-text-secondary hover:text-brand-primary transition-colors duration-200 font-medium"
+                className="text-gray-300 hover:text-orange-500 transition-colors duration-200 font-medium"
               >
                 {item.label}
               </Link>
@@ -43,7 +43,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-text-secondary hover:text-brand-primary hover:bg-background-secondary transition-colors"
+            className="md:hidden p-2 rounded-md text-gray-300 hover:text-orange-500 hover:bg-gray-800 transition-colors"
           >
             <svg
               className="h-6 w-6"
@@ -73,12 +73,12 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background-secondary rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 rounded-lg mt-2">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-text-secondary hover:text-brand-primary hover:bg-background-tertiary rounded-md transition-colors"
+                  className="block px-3 py-2 text-gray-300 hover:text-orange-500 hover:bg-gray-700 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}

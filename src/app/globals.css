@@ -8,60 +8,34 @@
     --foreground: 0 0% 98%;
   }
 
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background-primary text-text-primary;
+    @apply bg-gray-900 text-white;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 @layer components {
-  /* Custom scrollbar */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-background-secondary;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-brand-primary/50 rounded-full;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand-primary;
-  }
-
   /* Gradient text effect */
   .gradient-text {
-    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent bg-clip-text text-transparent;
-  }
-
-  /* Glow effect for brand elements */
-  .brand-glow {
-    @apply shadow-lg shadow-brand-primary/25;
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent;
   }
 
   /* Button styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-brand-primary to-brand-secondary text-white px-6 py-3 rounded-lg font-semibold hover:from-brand-secondary hover:to-brand-primary transition-all duration-200 brand-glow;
+    @apply bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-500 hover:to-orange-500 transition-all duration-200 shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-background-secondary text-text-primary border border-brand-primary/30 px-6 py-3 rounded-lg font-semibold hover:bg-brand-primary/10 hover:border-brand-primary/50 transition-all duration-200;
+    @apply bg-gray-800 text-white border border-orange-500/30 px-6 py-3 rounded-lg font-semibold hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-200;
   }
 
   /* Card styles */
   .card {
-    @apply bg-background-secondary border border-brand-primary/20 rounded-lg p-6 hover:border-brand-primary/40 transition-all duration-200;
+    @apply bg-gray-800 border border-orange-500/20 rounded-lg p-6 hover:border-orange-500/40 transition-all duration-200;
   }
 
   /* Input styles */
   .input {
-    @apply bg-background-secondary border border-brand-primary/30 rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:border-brand-primary focus:outline-none transition-all duration-200;
+    @apply bg-gray-800 border border-orange-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-orange-500 focus:outline-none transition-all duration-200;
   }
 }
