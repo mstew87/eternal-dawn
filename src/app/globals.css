@@ -20,22 +20,70 @@
     @apply bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent;
   }
 
-  /* Button styles */
+  /* Enhanced Button styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-500 hover:to-orange-500 transition-all duration-200 shadow-lg;
+    @apply relative bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:from-red-500 hover:via-orange-500 hover:to-yellow-500 transform;
+  }
+
+  .btn-primary::before {
+    @apply absolute inset-0 bg-gradient-to-r from-orange-400 via-red-400 to-yellow-400 rounded-lg opacity-0 transition-opacity duration-300;
+    content: '';
+    z-index: -1;
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
   }
 
   .btn-secondary {
-    @apply bg-gray-800 text-white border border-orange-500/30 px-6 py-3 rounded-lg font-semibold hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-200;
+    @apply relative bg-gray-800 text-white border border-orange-500/30 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10 hover:border-orange-500/60 hover:scale-105 transform shadow-lg hover:shadow-xl;
   }
 
-  /* Card styles */
+  .btn-secondary::before {
+    @apply absolute inset-0 bg-gradient-to-r from-orange-500/5 via-red-500/5 to-yellow-500/5 rounded-lg opacity-0 transition-opacity duration-300;
+    content: '';
+    z-index: -1;
+  }
+
+  .btn-secondary:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Enhanced Card styles */
   .card {
-    @apply bg-gray-800 border border-orange-500/20 rounded-lg p-6 hover:border-orange-500/40 transition-all duration-200;
+    @apply relative bg-gray-800 border border-orange-500/20 rounded-lg p-6 transition-all duration-300 hover:border-orange-500/40 hover:shadow-xl hover:shadow-orange-500/10 hover:scale-105 transform;
   }
 
-  /* Input styles */
+  .card::before {
+    @apply absolute inset-0 bg-gradient-to-r from-orange-500/5 via-red-500/5 to-yellow-500/5 rounded-lg opacity-0 transition-opacity duration-300;
+    content: '';
+    z-index: -1;
+  }
+
+  .card:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Enhanced Input styles */
   .input {
-    @apply bg-gray-800 border border-orange-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-orange-500 focus:outline-none transition-all duration-200;
+    @apply relative bg-gray-800 border border-orange-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 transition-all duration-300 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 hover:border-orange-500/50;
+  }
+
+  .input:focus {
+    @apply shadow-lg shadow-orange-500/10;
+  }
+
+  /* Navigation link styles */
+  .nav-link {
+    @apply relative px-4 py-2 text-gray-300 hover:text-white transition-all duration-200 font-medium rounded-lg hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10 group;
+  }
+
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 transition-all duration-300;
+    content: '';
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
   }
 }

@@ -4,18 +4,23 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 border-t border-orange-500/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-orange-500/30 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
-                ETD
+            <Link href="/" className="flex items-center space-x-3 mb-6 group">
+              <div className="relative">
+                <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-200">
+                  ETD
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-yellow-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
               </div>
-              <span className="text-white font-semibold">Eternal Dawn</span>
+              <span className="text-white font-semibold text-lg group-hover:text-orange-400 transition-colors duration-200">
+                Eternal Dawn
+              </span>
             </Link>
-            <p className="text-gray-300 max-w-md">
+            <p className="text-gray-300 max-w-md leading-relaxed">
               A passionate gaming community focused on ARPGs like Diablo IV, Path of Exile, and Last Epoch. 
               Join us in our journey through the eternal dawn of gaming.
             </p>
@@ -23,81 +28,75 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/apply" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Apply to Guild
-                </Link>
-              </li>
-              <li>
-                <Link href="/forum" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Forum
-                </Link>
-              </li>
-              <li>
-                <Link href="/members" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Members
-                </Link>
-              </li>
+            <h3 className="text-white font-semibold mb-6 text-lg">Quick Links</h3>
+            <ul className="space-y-3">
+              {[
+                { href: '/about', label: 'About Us' },
+                { href: '/apply', label: 'Apply to Guild' },
+                { href: '/forum', label: 'Forum' },
+                { href: '/members', label: 'Members' }
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    href={link.href} 
+                    className="text-gray-300 hover:text-orange-400 transition-all duration-200 hover:translate-x-1 inline-block group"
+                  >
+                    <span className="relative">
+                      {link.label}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Community */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Community</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="https://discord.gg/eternaldawn" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
-                >
-                  Discord
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://twitter.com/eternaldawn" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
-                >
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://youtube.com/@eternaldawn" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
-                >
-                  YouTube
-                </a>
-              </li>
+            <h3 className="text-white font-semibold mb-6 text-lg">Community</h3>
+            <ul className="space-y-3">
+              {[
+                { href: 'https://discord.gg/eternaldawn', label: 'Discord', icon: '💬' },
+                { href: 'https://twitter.com/eternaldawn', label: 'Twitter', icon: '🐦' },
+                { href: 'https://youtube.com/@eternaldawn', label: 'YouTube', icon: '📺' }
+              ].map((link) => (
+                <li key={link.href}>
+                  <a 
+                    href={link.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-orange-400 transition-all duration-200 hover:translate-x-1 inline-block group"
+                  >
+                    <span className="relative">
+                      <span className="mr-2">{link.icon}</span>
+                      {link.label}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300"></span>
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-orange-500/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-orange-500/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             © {currentYear} Eternal Dawn. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-gray-400 hover:text-orange-500 text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-gray-400 hover:text-orange-500 text-sm transition-colors">
-              Terms of Service
-            </Link>
+          <div className="flex space-x-8 mt-4 md:mt-0">
+            {[
+              { href: '/privacy', label: 'Privacy Policy' },
+              { href: '/terms', label: 'Terms of Service' }
+            ].map((link) => (
+              <Link 
+                key={link.href}
+                href={link.href} 
+                className="text-gray-400 hover:text-orange-400 text-sm transition-all duration-200 hover:scale-105"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

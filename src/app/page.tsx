@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -27,17 +28,45 @@ export default function Home() {
       <section className="py-16 px-4 bg-gray-800/50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
-            Our Chapters
+            Our Games
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Diablo IV', icon: '⚔️', description: 'Conquer Sanctuary together' },
-              { name: 'Path of Exile', icon: '🗡️', description: 'Master the skill tree' },
-              { name: 'Path of Exile 2', icon: '⚡', description: 'Next generation ARPG' },
-              { name: 'Last Epoch', icon: '⏰', description: 'Time-bending adventures' }
+              { 
+                name: 'Diablo IV', 
+                icon: '/icons/diablo-iv.svg', 
+                description: 'Conquer Sanctuary together',
+                color: 'from-red-800 to-red-600'
+              },
+              { 
+                name: 'Path of Exile', 
+                icon: '/icons/path-of-exile.svg', 
+                description: 'Master the skill tree',
+                color: 'from-blue-600 to-purple-600'
+              },
+              { 
+                name: 'Path of Exile 2', 
+                icon: '/icons/path-of-exile-2.svg', 
+                description: 'Next generation ARPG',
+                color: 'from-cyan-500 to-teal-500'
+              },
+              { 
+                name: 'Last Epoch', 
+                icon: '/icons/last-epoch.svg', 
+                description: 'Time-bending adventures',
+                color: 'from-orange-500 to-yellow-500'
+              }
             ].map((game) => (
-              <div key={game.name} className="card text-center">
-                <div className="text-4xl mb-4">{game.icon}</div>
+              <div key={game.name} className="card text-center group hover:scale-105 transition-transform duration-300">
+                <div className="relative w-16 h-16 mx-auto mb-4">
+                  <Image
+                    src={game.icon}
+                    alt={game.name}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
                 <h3 className="text-xl font-semibold mb-2">{game.name}</h3>
                 <p className="text-gray-400">{game.description}</p>
               </div>
