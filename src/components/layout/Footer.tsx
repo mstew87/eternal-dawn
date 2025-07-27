@@ -57,8 +57,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: 'https://discord.gg/eternaldawnetd', label: 'Discord', icon: '💬' },
-                { href: 'https://twitter.com/eternaldawn', label: 'Twitter', icon: '🐦' },
-                { href: 'https://youtube.com/@eternaldawn', label: 'YouTube', icon: '📺' }
+                { href: 'https://www.youtube.com/@EternalDawnETD', label: 'YouTube', icon: '📺' }
               ].map((link) => (
                 <li key={link.href}>
                   <a 
