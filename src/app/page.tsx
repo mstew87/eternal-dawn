@@ -139,7 +139,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/apply" className="btn-primary">
-              Apply Now
+              Join Now
             </Link>
             <Link href="/forum" className="btn-secondary">
               Explore Forum
