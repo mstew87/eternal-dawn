@@ -56,7 +56,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6 text-lg">Community</h3>
             <ul className="space-y-3">
               {[
-                { href: 'https://discord.gg/eternaldawn', label: 'Discord', icon: '💬' },
+                { href: 'https://discord.gg/eternaldawnetd', label: 'Discord', icon: '💬' },
                 { href: 'https://twitter.com/eternaldawn', label: 'Twitter', icon: '🐦' },
                 { href: 'https://youtube.com/@eternaldawn', label: 'YouTube', icon: '📺' }
               ].map((link) => (
