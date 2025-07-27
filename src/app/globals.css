@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Old London Font */
+@font-face {
+  font-family: 'Old London';
+  src: url('/fonts/OldLondon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cardinal Font */
+@font-face {
+  font-family: 'Cardinal';
+  src: url('/fonts/Cardinal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 4%;
@@ -51,11 +69,11 @@
 
   /* Enhanced Card styles */
   .card {
-    @apply relative bg-gray-800 border border-orange-500/20 rounded-lg p-6 transition-all duration-300 hover:border-orange-500/40 hover:shadow-xl hover:shadow-orange-500/10 hover:scale-105 transform;
+    @apply relative bg-gray-800/80 backdrop-blur-sm border border-orange-500/20 rounded-xl p-6 transition-all duration-300 hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/20 hover:scale-105 transform hover:bg-gray-800/90;
   }
 
   .card::before {
-    @apply absolute inset-0 bg-gradient-to-r from-orange-500/5 via-red-500/5 to-yellow-500/5 rounded-lg opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-orange-500/10 via-red-500/10 to-yellow-500/10 rounded-xl opacity-0 transition-opacity duration-300;
     content: '';
     z-index: -1;
   }
@@ -85,5 +103,80 @@
 
   .nav-link:hover::after {
     @apply w-full;
+  }
+
+  /* Animation for fade-in effect */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* Stylized game titles with shadows and emphasis */
+  .game-title {
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent;
+    text-shadow: 
+      2px 2px 4px rgba(255, 255, 255, 0.15),
+      4px 4px 8px rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
+    font-weight: 800;
+  }
+
+  .game-title:hover {
+    text-shadow: 
+      3px 3px 6px rgba(255, 255, 255, 0.2),
+      6px 6px 12px rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  /* Eternal Dawn title with subtle white shadow */
+  .eternal-dawn-title {
+    text-shadow: 
+      2px 2px 4px rgba(255, 255, 255, 0.15),
+      4px 4px 8px rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(255, 69, 0, 0.3),
+      0 0 40px rgba(255, 69, 0, 0.2);
+    letter-spacing: 2px;
+    font-weight: 400;
+    filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.4));
+  }
+
+  .font-orbitron {
+    font-family: var(--font-orbitron);
+  }
+
+  .font-cinzel {
+    font-family: var(--font-cinzel);
+  }
+
+  .font-unifraktur {
+    font-family: var(--font-unifraktur);
+  }
+
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+
+  .font-crimson {
+    font-family: var(--font-crimson);
+  }
+
+  .font-old-london {
+    font-family: 'Old London', serif;
+  }
+
+  .font-cardinal {
+    font-family: 'Cardinal', serif;
   }
 }

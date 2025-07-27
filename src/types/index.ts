@@ -14,7 +14,7 @@ export interface User {
 export interface GuildApplication {
   id: string;
   userId: string;
-  game: 'Diablo IV' | 'Path of Exile' | 'Path of Exile 2' | 'Last Epoch';
+  game: 'Diablo IV' | 'Path of Exile' | 'Path of Exile 2' | 'Last Epoch' | 'Dune Awakening' | 'Division 2' | 'Destiny 2';
   characterName: string;
   characterLevel: number;
   experience: string;

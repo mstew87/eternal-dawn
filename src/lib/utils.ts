@@ -46,7 +46,10 @@ export function getGameDisplayName(game: string): string {
     'Diablo IV': 'Diablo IV',
     'Path of Exile': 'Path of Exile',
     'Path of Exile 2': 'Path of Exile 2',
-    'Last Epoch': 'Last Epoch'
+    'Last Epoch': 'Last Epoch',
+    'Dune Awakening': 'Dune Awakening',
+    'Division 2': 'Division 2',
+    'Destiny 2': 'Destiny 2'
   };
   return gameNames[game] || game;
 } 

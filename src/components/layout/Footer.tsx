@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-orange-500/30 shadow-lg">
+        <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-orange-500/30 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-300 max-w-md leading-relaxed">
-              A passionate gaming community focused on ARPGs like Diablo IV, Path of Exile, and Last Epoch. 
+              A passionate gaming community focused on multiple games including Diablo IV, Path of Exile, and more. 
               Join us in our journey through the eternal dawn of gaming.
             </p>
           </div>

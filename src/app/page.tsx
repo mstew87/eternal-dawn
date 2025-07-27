@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -8,7 +7,7 @@ export default function Home() {
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="gradient-text">Eternal Dawn</span>
+            <span className="gradient-text eternal-dawn-title">Eternal Dawn</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Join the ultimate gaming community where legends are forged
@@ -28,47 +27,29 @@ export default function Home() {
       <section className="py-16 px-4 bg-gray-800/50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
-            Our Games
+            Our Chapters
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7 gap-8">
             {[
-              { 
-                name: 'Diablo IV', 
-                icon: '/icons/diablo-iv.svg', 
-                description: 'Conquer Sanctuary together',
-                color: 'from-red-800 to-red-600'
-              },
-              { 
-                name: 'Path of Exile', 
-                icon: '/icons/path-of-exile.svg', 
-                description: 'Master the skill tree',
-                color: 'from-blue-600 to-purple-600'
-              },
-              { 
-                name: 'Path of Exile 2', 
-                icon: '/icons/path-of-exile-2.svg', 
-                description: 'Next generation ARPG',
-                color: 'from-cyan-500 to-teal-500'
-              },
-              { 
-                name: 'Last Epoch', 
-                icon: '/icons/last-epoch.svg', 
-                description: 'Time-bending adventures',
-                color: 'from-orange-500 to-yellow-500'
-              }
-            ].map((game) => (
-              <div key={game.name} className="card text-center group hover:scale-105 transition-transform duration-300">
-                <div className="relative w-16 h-16 mx-auto mb-4">
-                  <Image
-                    src={game.icon}
-                    alt={game.name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{game.name}</h3>
-                <p className="text-gray-400">{game.description}</p>
+              { name: 'Diablo IV', description: 'Conquer Sanctuary together' },
+              { name: 'Path of Exile', description: 'Master the skill tree' },
+              { name: 'Path of Exile 2', description: 'Next generation ARPG' },
+              { name: 'Last Epoch', description: 'Time-bending adventures' },
+              { name: 'Dune Awakening', description: 'Survive the harsh desert world' },
+              { name: 'Division 2', description: 'Rebuild Washington DC together' },
+              { name: 'Destiny 2', description: 'Become legend in the solar system' }
+            ].map((game, index) => (
+              <div 
+                key={game.name} 
+                className="card text-center group hover:scale-105 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <h3 className="text-2xl font-bold mb-3 game-title group-hover:scale-105 transition-all duration-300">
+                  {game.name}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {game.description}
+                </p>
               </div>
             ))}
           </div>
@@ -91,7 +72,7 @@ export default function Home() {
               <div className="text-gray-400">Discord Activity</div>
             </div>
             <div className="card text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">4</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">7</div>
               <div className="text-gray-400">Supported Games</div>
             </div>
           </div>
@@ -123,7 +104,7 @@ export default function Home() {
               },
               {
                 title: 'Cross-Game Support',
-                description: 'Play multiple ARPGs with the same community',
+                description: 'Play multiple games with the same community',
                 icon: '🎮'
               },
               {
