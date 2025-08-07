@@ -32,7 +32,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: '/coming-soon', label: 'About Us' },
-                { href: '/apply', label: 'Apply to Guild' },
+                { href: '/apply', label: 'Join Now' },
                 { href: '/coming-soon', label: 'Forum' },
                 { href: '/coming-soon', label: 'Members' }
               ].map((link) => (
