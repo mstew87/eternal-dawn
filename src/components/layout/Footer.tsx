@@ -31,12 +31,12 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6 text-lg">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { href: '/coming-soon', label: 'About Us' },
-                { href: '/apply', label: 'Join Now' },
-                { href: '/coming-soon', label: 'Forum' },
-                { href: '/coming-soon', label: 'Members' }
+                { href: '/coming-soon', label: 'About Us', key: 'about' },
+                { href: '/apply', label: 'Join Now', key: 'join' },
+                { href: '/coming-soon', label: 'Forum', key: 'forum' },
+                { href: '/coming-soon', label: 'Members', key: 'members' }
               ].map((link) => (
-                <li key={link.href}>
+                <li key={link.key}>
                   <Link 
                     href={link.href} 
                     className="text-gray-300 hover:text-orange-400 transition-all duration-200 hover:translate-x-1 inline-block group"
@@ -85,16 +85,16 @@ export default function Footer() {
           </p>
           <div className="flex space-x-8 mt-4 md:mt-0">
             {[
-              { href: '/coming-soon', label: 'Privacy Policy' },
-              { href: '/coming-soon', label: 'Terms of Service' }
+              { href: '/coming-soon', label: 'Privacy Policy', key: 'privacy' },
+              { href: '/coming-soon', label: 'Terms of Service', key: 'terms' }
             ].map((link) => (
-              <Link 
-                key={link.href}
-                href={link.href} 
-                className="text-gray-400 hover:text-orange-400 text-sm transition-all duration-200 hover:scale-105"
-              >
-                {link.label}
-              </Link>
+                              <Link 
+                  key={link.key}
+                  href={link.href} 
+                  className="text-gray-400 hover:text-orange-400 text-sm transition-all duration-200 hover:scale-105"
+                >
+                  {link.label}
+                </Link>
             ))}
           </div>
         </div>

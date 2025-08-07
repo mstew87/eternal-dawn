@@ -8,11 +8,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/coming-soon' },
-    { label: 'Join Now', href: '/apply' },
-    { label: 'Forum', href: '/coming-soon' },
-    { label: 'Members', href: '/coming-soon' },
+    { label: 'Home', href: '/', key: 'home' },
+    { label: 'About', href: '/coming-soon', key: 'about' },
+    { label: 'Join Now', href: '/apply', key: 'join' },
+    { label: 'Forum', href: '/coming-soon', key: 'forum' },
+    { label: 'Members', href: '/coming-soon', key: 'members' },
   ];
 
   return (
@@ -36,7 +36,7 @@ export default function Header() {
           <nav className="hidden md:flex space-x-1">
             {navItems.map((item) => (
               <Link
-                key={item.href}
+                key={item.key}
                 href={item.href}
                 className="relative px-4 py-2 text-gray-300 hover:text-white transition-colors duration-200 font-medium rounded-lg hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10 group"
               >
@@ -82,7 +82,7 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg mt-2 border border-orange-500/20 shadow-xl">
               {navItems.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item.key}
                   href={item.href}
                   className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10 rounded-md transition-all duration-200 font-medium"
                   onClick={() => setIsMenuOpen(false)}
