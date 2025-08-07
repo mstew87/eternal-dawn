@@ -31,10 +31,10 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-6 text-lg">Quick Links</h3>
             <ul className="space-y-3">
               {[
-                { href: '/about', label: 'About Us' },
+                { href: '/coming-soon', label: 'About Us' },
                 { href: '/apply', label: 'Apply to Guild' },
-                { href: '/forum', label: 'Forum' },
-                { href: '/members', label: 'Members' }
+                { href: '/coming-soon', label: 'Forum' },
+                { href: '/coming-soon', label: 'Members' }
               ].map((link) => (
                 <li key={link.href}>
                   <Link 
@@ -85,8 +85,8 @@ export default function Footer() {
           </p>
           <div className="flex space-x-8 mt-4 md:mt-0">
             {[
-              { href: '/privacy', label: 'Privacy Policy' },
-              { href: '/terms', label: 'Terms of Service' }
+              { href: '/coming-soon', label: 'Privacy Policy' },
+              { href: '/coming-soon', label: 'Terms of Service' }
             ].map((link) => (
               <Link 
                 key={link.href}
