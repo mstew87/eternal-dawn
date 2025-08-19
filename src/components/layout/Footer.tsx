@@ -84,7 +84,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-8 mt-4 md:mt-0">
             {[
-              { href: '/coming-soon', label: 'Privacy Policy', key: 'privacy' },
+              { href: '/privacy', label: 'Privacy Policy', key: 'privacy' },
               { href: '/coming-soon', label: 'Terms of Service', key: 'terms' }
             ].map((link) => (
                               <Link 
