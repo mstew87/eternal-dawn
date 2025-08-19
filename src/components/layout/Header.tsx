@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 import { cn } from '@/lib/utils';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session, status } = useSession();
 
   const navItems = [
     { label: 'Home', href: '/', key: 'home' },
@@ -14,6 +16,10 @@ export default function Header() {
     { label: 'Forum', href: '/coming-soon', key: 'forum' },
     { label: 'Members', href: '/coming-soon', key: 'members' },
   ];
+
+  const handleSignOut = () => {
+    signOut({ callbackUrl: '/' });
+  };
 
   return (
         <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-orange-500/30 shadow-lg backdrop-blur-sm">
@@ -45,6 +51,35 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+
+          {/* Auth Section */}
+          <div className="hidden md:flex items-center space-x-4">
+            {status === 'loading' ? (
+              <div className="text-gray-400">Loading...</div>
+            ) : session ? (
+              <div className="flex items-center space-x-3">
+                <Link
+                  href="/dashboard"
+                  className="px-4 py-2 text-gray-300 hover:text-white transition-colors duration-200 font-medium rounded-lg hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg hover:bg-red-500/20 transition-colors duration-200"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 font-medium"
+              >
+                Sign In
+              </Link>
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -90,6 +125,40 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Mobile Auth Section */}
+              <div className="pt-2 border-t border-gray-700">
+                {status === 'loading' ? (
+                  <div className="px-3 py-2 text-gray-400">Loading...</div>
+                ) : session ? (
+                  <div className="space-y-1">
+                    <Link
+                      href="/dashboard"
+                      className="block px-3 py-2 text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-orange-500/10 hover:to-red-500/10 rounded-md transition-all duration-200 font-medium"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Dashboard
+                    </Link>
+                    <button
+                      onClick={() => {
+                        handleSignOut();
+                        setIsMenuOpen(false);
+                      }}
+                      className="w-full text-left px-3 py-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-md transition-all duration-200 font-medium"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 rounded-md transition-all duration-200 font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         )}
