@@ -3,11 +3,47 @@ export interface User {
   id: string;
   username: string;
   email: string;
-  role: 'user' | 'admin' | 'moderator';
+  role: UserRole;
   avatar?: string;
-  discordId?: string;
   createdAt: Date;
-  updatedAt: Date;
+  lastLogin?: Date;
+  isActive: boolean;
+}
+
+export type UserRole = 'Owner' | 'Admin' | 'Mod' | 'Staff' | 'Member';
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface RegisterData {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface AuthState {
+  user: User | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+}
+
+export interface DashboardStats {
+  totalMembers: number;
+  activeMembers: number;
+  pendingApplications: number;
+  recentActivity: number;
+}
+
+export interface UserActivity {
+  id: string;
+  type: 'login' | 'logout' | 'profile_update' | 'role_change' | 'application_review';
+  description: string;
+  timestamp: Date;
+  userId: string;
+  username: string;
 }
 
 // Guild application types
