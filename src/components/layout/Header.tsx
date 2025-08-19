@@ -13,7 +13,6 @@ export default function Header() {
     { label: 'Home', href: '/', key: 'home' },
     { label: 'About', href: '/coming-soon', key: 'about' },
     { label: 'Join Now', href: '/apply', key: 'join' },
-    { label: 'Forum', href: '/coming-soon', key: 'forum' },
     { label: 'Members', href: '/coming-soon', key: 'members' },
   ];
 

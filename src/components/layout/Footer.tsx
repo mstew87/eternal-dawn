@@ -33,7 +33,6 @@ export default function Footer() {
               {[
                 { href: '/coming-soon', label: 'About Us', key: 'about' },
                 { href: '/apply', label: 'Join Now', key: 'join' },
-                { href: '/coming-soon', label: 'Forum', key: 'forum' },
                 { href: '/coming-soon', label: 'Members', key: 'members' }
               ].map((link) => (
                 <li key={link.key}>
