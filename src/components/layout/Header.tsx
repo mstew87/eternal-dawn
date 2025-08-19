@@ -13,7 +13,7 @@ export default function Header() {
     { label: 'Home', href: '/', key: 'home' },
     { label: 'About', href: '/about', key: 'about' },
     { label: 'Join Now', href: '/apply', key: 'join' },
-    { label: 'Members', href: '/coming-soon', key: 'members' },
+    { label: 'Members', href: '/dashboard', key: 'members' },
   ];
 
   const handleSignOut = () => {

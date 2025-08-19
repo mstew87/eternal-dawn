@@ -33,7 +33,7 @@ export default function Footer() {
               {[
                 { href: '/about', label: 'About Us', key: 'about' },
                 { href: '/apply', label: 'Join Now', key: 'join' },
-                { href: '/coming-soon', label: 'Members', key: 'members' }
+                { href: '/dashboard', label: 'Members', key: 'members' }
               ].map((link) => (
                 <li key={link.key}>
                   <Link 
@@ -85,7 +85,7 @@ export default function Footer() {
           <div className="flex space-x-8 mt-4 md:mt-0">
             {[
               { href: '/privacy', label: 'Privacy Policy', key: 'privacy' },
-              { href: '/coming-soon', label: 'Terms of Service', key: 'terms' }
+              { href: '/terms', label: 'Terms of Service', key: 'terms' }
             ].map((link) => (
                               <Link 
                   key={link.key}
