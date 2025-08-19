@@ -106,7 +106,7 @@ export default function AboutPage() {
               href="/apply"
               className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-orange-600 hover:to-red-600 transition-all duration-200 font-medium"
             >
-              Apply Now
+              Join Now
             </a>
             <a
               href="/login"
