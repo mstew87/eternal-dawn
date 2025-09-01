@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -6,12 +7,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="gradient-text eternal-dawn-title">Eternal Dawn</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Join the ultimate gaming community where legends are forged
-          </p>
+          <div className="mb-8 max-w-4xl mx-auto">
+            <Image
+              src="/splashgraphic.gif"
+              alt="Eternal Dawn Gaming Community"
+              width={800}
+              height={200}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/apply" className="btn-primary">
               Join Our Guild

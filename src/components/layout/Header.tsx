@@ -13,7 +13,7 @@ export default function Header() {
     { label: 'Home', href: '/', key: 'home' },
     { label: 'About', href: '/about', key: 'about' },
     { label: 'Join Now', href: '/apply', key: 'join' },
-    { label: 'Members', href: '/dashboard', key: 'members' },
+    { label: 'Members', href: '/coming-soon', key: 'members' },
   ];
 
   const handleSignOut = () => {
@@ -21,21 +21,19 @@ export default function Header() {
   };
 
   return (
-        <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-b border-orange-500/30 shadow-lg backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-                              <div className="text-2xl font-bold bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-200">
-                ETD
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-red-500/20 to-yellow-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-            </div>
-            <span className="text-white font-semibold group-hover:text-orange-400 transition-colors duration-200">
-              Eternal Dawn
-            </span>
-          </Link>
+    <header 
+      className="border-b border-orange-500/30 shadow-lg backdrop-blur-sm relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/navbar-banner.gif)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'left center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex justify-between items-center h-12">
+          {/* Logo - Removed since GIF contains branding */}
+          <div className="flex-1"></div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-1">
