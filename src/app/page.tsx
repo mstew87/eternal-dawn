@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
   const [centerGame, setCenterGame] = useState<string | null>(null)
+  const [hoveredGame, setHoveredGame] = useState<string | null>(null)
 
   const games = [
     { 
@@ -47,6 +48,12 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Only run scroll detection on mobile devices (screen width < 768px)
+      if (window.innerWidth >= 768) {
+        setCenterGame(null)
+        return
+      }
+
       const gameTiles = document.querySelectorAll('[data-game]')
       const viewportCenter = window.innerHeight / 2
       let closestGame = null
@@ -107,25 +114,27 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
             Our Chapters
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
             {games.map((game, index) => (
               <div 
                 key={game.name} 
                 data-game={game.name}
-                className="card text-center group transition-all duration-300 animate-fade-in relative overflow-hidden sm:h-auto h-[200px] flex flex-col justify-center items-center p-4"
+                className="card text-center group transition-all duration-300 animate-fade-in relative overflow-hidden sm:h-[260px] h-[250px] flex flex-col justify-center items-center p-4"
                 style={{ animationDelay: `${index * 100}ms` }}
+                onMouseEnter={() => setHoveredGame(game.name)}
+                onMouseLeave={() => setHoveredGame(null)}
               >
-                {/* GIF overlay that appears when tile is closest to center */}
+                {/* GIF overlay - shows on hover for desktop, scroll for mobile */}
                 {game.gif && (
                   <div className={`absolute inset-0 z-10 bg-black/80 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
-                    centerGame === game.name ? 'opacity-100' : 'opacity-0'
+                    (hoveredGame === game.name || centerGame === game.name) ? 'opacity-100' : 'opacity-0'
                   }`}>
                     <Image
                       src={game.gif}
                       alt={`${game.name} Preview`}
                       width={300}
                       height={200}
-                      className="w-full h-full object-contain sm:w-[300px] sm:h-[200px]"
+                      className="w-full h-full sm:object-cover object-contain"
                     />
                   </div>
                 )}
