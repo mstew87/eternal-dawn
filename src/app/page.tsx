@@ -1,7 +1,80 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
+  const [centerGame, setCenterGame] = useState<string | null>(null)
+
+  const games = [
+    { 
+      name: 'Diablo IV', 
+      description: 'Conquer Sanctuary together',
+      gif: '/D4_Panel.gif'
+    },
+    { 
+      name: 'Path of Exile', 
+      description: 'Master the skill tree',
+      gif: null
+    },
+    { 
+      name: 'Path of Exile 2', 
+      description: 'Next generation ARPG',
+      gif: '/PoE2_Panel.gif'
+    },
+    { 
+      name: 'Last Epoch', 
+      description: 'Time-bending adventures',
+      gif: '/LastEpoch_Panel.gif'
+    },
+    { 
+      name: 'Dune Awakening', 
+      description: 'Survive the harsh desert world',
+      gif: null
+    },
+    { 
+      name: 'Division 2', 
+      description: 'Rebuild Washington DC together',
+      gif: null
+    },
+    { 
+      name: 'Destiny 2', 
+      description: 'Become legend in the solar system',
+      gif: null
+    }
+  ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const gameTiles = document.querySelectorAll('[data-game]')
+      const viewportCenter = window.innerHeight / 2
+      let closestGame = null
+      let closestDistance = Infinity
+
+      gameTiles.forEach((tile) => {
+        const rect = tile.getBoundingClientRect()
+        const tileCenter = rect.top + rect.height / 2
+        const distance = Math.abs(tileCenter - viewportCenter)
+        
+        if (distance < closestDistance) {
+          closestDistance = distance
+          closestGame = tile.getAttribute('data-game')
+        }
+      })
+
+      setCenterGame(closestGame)
+    }
+
+    // Initial check
+    handleScroll()
+    
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll)
+    
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
@@ -34,21 +107,29 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
             Our Chapters
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-7 gap-8">
-            {[
-              { name: 'Diablo IV', description: 'Conquer Sanctuary together' },
-              { name: 'Path of Exile', description: 'Master the skill tree' },
-              { name: 'Path of Exile 2', description: 'Next generation ARPG' },
-              { name: 'Last Epoch', description: 'Time-bending adventures' },
-              { name: 'Dune Awakening', description: 'Survive the harsh desert world' },
-              { name: 'Division 2', description: 'Rebuild Washington DC together' },
-              { name: 'Destiny 2', description: 'Become legend in the solar system' }
-            ].map((game, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {games.map((game, index) => (
               <div 
                 key={game.name} 
-                className="card text-center group hover:scale-105 transition-all duration-300 animate-fade-in"
+                data-game={game.name}
+                className="card text-center group transition-all duration-300 animate-fade-in relative overflow-hidden sm:h-auto h-[200px] flex flex-col justify-center items-center p-4"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
+                {/* GIF overlay that appears when tile is closest to center */}
+                {game.gif && (
+                  <div className={`absolute inset-0 z-10 bg-black/80 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
+                    centerGame === game.name ? 'opacity-100' : 'opacity-0'
+                  }`}>
+                    <Image
+                      src={game.gif}
+                      alt={`${game.name} Preview`}
+                      width={300}
+                      height={200}
+                      className="w-full h-full object-contain sm:w-[300px] sm:h-[200px]"
+                    />
+                  </div>
+                )}
+                
                 <h3 className="text-2xl font-bold mb-3 game-title group-hover:scale-105 transition-all duration-300">
                   {game.name}
                 </h3>
